@@ -1,2 +1,12 @@
 <!--miniprogram/pages/login/login.wxml-->
-<text>miniprogram/pages/login/login.wxml</text>
+<image src="{{headimg}}"></image>
+ <button 
+      open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo"
+      class="login"
+      >授权登录</button>
+ <button 
+      open-type="getPhoneNumber" 
+      bindgetphonenumber="onGetMobile"
+      class="login" style='display:none'
+      >绑定手机</button>

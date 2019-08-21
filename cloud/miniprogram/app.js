@@ -11,6 +11,9 @@ App({
 
     this.globalData = {
       openid:'',
+      logged:false,
+      avatarUrl:'',
+      userInfo:''
       
     };
     this.onGetOpenid();

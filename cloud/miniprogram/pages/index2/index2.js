@@ -11,10 +11,7 @@ Page({
   },
 
   onLoad: function() {
-    // this.onGetOpenid()
-   setTimeout(function(){
-     console.log(app.globalData.openid, 2)
-   },2000)
+
     if (!wx.cloud) {
       wx.redirectTo({
         url: '../chooseLib/chooseLib',

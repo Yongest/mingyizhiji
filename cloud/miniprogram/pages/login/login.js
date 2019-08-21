@@ -1,11 +1,12 @@
 // miniprogram/pages/login/login.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    headimg:''
   },
 
   /**
@@ -20,6 +21,30 @@ Page({
    */
   onReady: function () {
 
+  },
+
+  onGetUserInfo: function (e) {
+    
+    
+    if (!app.globalData.logged && e.detail.userInfo) {
+      app.globalData.logged = true;
+      app.globalData.headimg = e.detail.userInfo.avatarUrl;
+      app.globalData.userInfo = e.detail.userInfo;
+      this.setData({
+        headimg: e.detail.userInfo.avatarUrl
+      })
+      wx.showToast({
+        title: '登录成功！',
+        success() {
+
+          wx.navigateBack()
+        }
+      })
+     
+    }
+  },
+  onGetMobile(e){
+    console.log(e)
   },
 
   /**
