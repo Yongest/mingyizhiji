@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    headimg:''
+    headimg: ''
   },
 
   /**
@@ -24,8 +24,8 @@ Page({
   },
 
   onGetUserInfo: function (e) {
-    
-    
+
+
     if (!app.globalData.logged && e.detail.userInfo) {
       app.globalData.logged = true;
       app.globalData.headimg = e.detail.userInfo.avatarUrl;
@@ -33,6 +33,20 @@ Page({
       this.setData({
         headimg: e.detail.userInfo.avatarUrl
       })
+      console.log(e)
+      const db = wx.cloud.database();
+      if (app.globalData.user_id) {
+        db.collection('users').doc(app.globalData.user_id)
+          .update({
+            data: {
+              user_info: e.detail.userInfo
+            },
+            success: function (data) {
+
+            }
+          })
+      }
+
       wx.showToast({
         title: '登录成功！',
         success() {
@@ -40,10 +54,10 @@ Page({
           wx.navigateBack()
         }
       })
-     
+
     }
   },
-  onGetMobile(e){
+  onGetMobile(e) {
     console.log(e)
   },
 
