@@ -1,0 +1,21 @@
+<!--miniprogram/pages/home/home.wxml-->
+
+<view class='title'>{{book.title}}----{{book.bookAuthor}}</view>
+<view class='desc'>
+  {{book.content[0].desc}}
+</view>
+<image wx:if='book.img' src='{{book.img}}'></image>
+<view>
+
+</view>
+<view wx:for='{{book.content}}' wx:if="{{index>=1}}" wx:key="{{index}}">
+  <view wx:if="{{item.title}}" class='titledesc'>
+    {{item.title}}
+  </view>
+  <view wx:else class='desc'>
+    {{item.desc}}
+  </view>
+</view>
+
+
+<!-- <view class='desc'></view> -->

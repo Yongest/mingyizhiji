@@ -1,0 +1,25 @@
+/* miniprogram/pages/home/home.wxss */
+page {
+  background: #fff;
+  padding-bottom: 20rpx;
+}
+.title {
+  color:#000;
+  text-align: left;
+  padding: 20rpx;
+  font-weight: bold;
+  font-size: 36rpx;
+}
+.titledesc {
+  padding-left:15rpx;
+  padding-top: 15rpx;
+}
+
+.desc {
+  font-size: 28rpx;
+  padding:15rpx;
+  padding-bottom: 0px;
+}
+image {
+  width: 100%;
+}

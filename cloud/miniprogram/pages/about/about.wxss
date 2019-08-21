@@ -1,0 +1,14 @@
+/* miniprogram/pages/about/about.wxss */
+view {
+  text-align: center
+}
+ image {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  margin-top: 80rpx;
+}
+
+.desc {
+  text-indent: 2em;
+}

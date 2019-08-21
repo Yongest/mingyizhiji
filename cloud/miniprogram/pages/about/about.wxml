@@ -1,0 +1,6 @@
+<!--miniprogram/pages/about/about.wxml-->
+<view>
+<image src='../../images/logo.jpg'></image>
+
+</view>
+<text class='p30 desc'>大家好，我是明一，来自美丽的湖南省麻阳苗族自治县，热爱编程，酷爱哲学。本小程序旨在：话题的讨论，推荐优质文章。</text>

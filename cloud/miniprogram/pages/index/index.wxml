@@ -1,0 +1,14 @@
+<!--miniprogram/pages/home/home.wxml-->
+
+<text class='title'>-----见微为明，知行合一之时。</text>
+
+<view>
+  <navigator wx:for="{{books}}" class='item' url='/pages/detail/detail?book_id={{item._id}}'>
+    <image class='leftimg' src='{{item.img}}'></image>
+    <view class='rightbox'>
+        <text class='item-title'>{{item.title}}</text>
+        <text class='bottom'>{{item.author}}</text>
+    </view>
+  </navigator>
+  
+</view>
