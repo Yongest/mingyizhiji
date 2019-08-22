@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/feedback/feedback",
     "pages/login/login",
     "pages/index/index",
     "pages/index2/index2",

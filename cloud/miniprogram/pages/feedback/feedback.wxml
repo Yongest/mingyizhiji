@@ -1,0 +1,9 @@
+<!--miniprogram/pages/login/login.wxml-->
+<view><text>标题：</text><input></input></view>
+<view>
+  <text>内容：</text><textarea></textarea>
+</view>
+<view>
+</view>
+<button bindtap='feedback'>反馈留言</button>
+

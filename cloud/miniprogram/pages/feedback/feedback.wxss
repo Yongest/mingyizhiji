@@ -1,0 +1,18 @@
+/* miniprogram/pages/login/login.wxss */
+image {
+  width: 200rpx;
+  height: 200rpx;
+  background: #e8e8e8;
+  margin: 0 auto;
+  border-radius: 50%;
+  margin-top: 200rpx;
+}
+button {
+  margin-top: 50rpx;
+  width: 300rpx;
+  height: 80rpx;
+  color:#fff;
+  font-size: 32rpx;
+  background:#00adef;
+  line-height: 80rpx;
+}
