@@ -18,7 +18,9 @@ button::after{
   border: none;
 }
 
-
+image {
+  background: #e8e8e8
+}
 page {
   background: #f6f6f6;
   display: flex;

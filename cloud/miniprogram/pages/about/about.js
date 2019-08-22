@@ -21,7 +21,11 @@ Page({
   onReady: function () {
 
   },
-
+  goFeedback(){
+    wx.navigateTo({
+      url: '/pages/feedback/feedback',
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */

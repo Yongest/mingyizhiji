@@ -4,3 +4,7 @@
 
 </view>
 <text class='p30 desc'>大家好，我是明一，来自美丽的湖南省麻阳苗族自治县，热爱编程，酷爱哲学。本小程序旨在：话题的讨论，推荐优质文章。</text>
+
+<view class="btnbox">
+
+<button class="btn" bindtap="goFeedback">反馈留言</button></view>

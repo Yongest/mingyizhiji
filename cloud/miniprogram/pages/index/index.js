@@ -1,4 +1,5 @@
 // miniprogram/pages/home/home.js
+const app = getApp()
 Page({
 
   /**
@@ -18,6 +19,9 @@ Page({
       })
       return
     }
+    wx.showLoading({
+      title: 'loadding...',
+    })
 
     // 获取用户信息
     wx.getSetting({
@@ -52,6 +56,9 @@ Page({
       },
       fail: function (err) {
         console.log(err)
+      },
+      complete(){
+        wx.hideLoading();
       }
     })
 

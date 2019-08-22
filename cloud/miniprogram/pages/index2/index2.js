@@ -88,7 +88,9 @@ Page({
         const filePath = res.tempFilePaths[0]
         
         // 上传图片
-        const cloudPath = 'my-image' + filePath.match(/\.[^.]+?$/)[0]
+        const cloudPath = Math.random() + (+new Date()) + filePath.match(/\.[^.]+?$/)[0]
+        console.log(filePath)
+        console.log(cloudPath)
         wx.cloud.uploadFile({
           cloudPath,
           filePath,

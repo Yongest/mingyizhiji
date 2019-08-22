@@ -13,7 +13,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.showToast({
+      title: '授权登录后，才能反馈！',
+      icon:'none',
+      duration: 4000
+    })
   },
 
   /**
@@ -33,7 +37,7 @@ Page({
       this.setData({
         headimg: e.detail.userInfo.avatarUrl
       })
-      console.log(e)
+      // console.log(e)
       const db = wx.cloud.database();
       if (app.globalData.user_id) {
         db.collection('users').doc(app.globalData.user_id)
@@ -51,7 +55,9 @@ Page({
         title: '登录成功！',
         success() {
 
-          wx.navigateBack()
+          setTimeout(function(){
+            wx.navigateBack()
+          },3000)
         }
       })
 

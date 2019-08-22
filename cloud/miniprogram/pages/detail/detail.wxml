@@ -1,6 +1,6 @@
 <!--miniprogram/pages/home/home.wxml-->
 
-<view class='title'>{{book.title}}----{{book.bookAuthor}}</view>
+<view class='title' wx:if="{{book.title}}">{{book.title}}----{{book.bookAuthor}}</view>
 <view class='desc'>
   {{book.content[0].desc}}
 </view>

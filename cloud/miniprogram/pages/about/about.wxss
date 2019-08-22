@@ -12,3 +12,16 @@ view {
 .desc {
   text-indent: 2em;
 }
+.btnbox {
+  text-align: right;
+  position: relative;
+  margin-top: 400rpx;
+}
+.btn {
+  position: absolute;
+  right: 50rpx;
+  background: #00adef;
+  color:#fff;
+  width: 200rpx;
+ 
+}

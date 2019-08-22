@@ -5,14 +5,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    book:[]
+    book: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.book_id)
+    wx.showLoading({
+      title: 'loadding...',
+    })
 
     // 1. 获取数据库引用
     const db = wx.cloud.database()
@@ -20,17 +22,17 @@ Page({
     const books = db.collection('books')
     const me = this;
     books.where({
-      _id:options.book_id
+      _id: options.book_id
     }).get({
       success: function (res) {
         me.setData({
-          book:res.data[0]
+          book: res.data[0]
         })
-        console.log(res)
-       
       },
       fail: function (err) {
         console.log(err)
+      }, complete() {
+        wx.hideLoading();
       }
     })
 
