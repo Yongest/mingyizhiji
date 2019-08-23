@@ -3,7 +3,7 @@
 <text class='title'>-----见微为明，知行合一之时。</text>
 
 <view>
-  <navigator wx:for="{{books}}" class='item' url='/pages/detail/detail?book_id={{item._id}}'>
+  <navigator wx:for="{{books}}" wx:key="{{item._id}}" class='item' url='/pages/detail/detail?book_id={{item._id}}'>
     <image class='leftimg' src='{{item.img}}'></image>
     <view class='rightbox'>
         <text class='item-title'>{{item.title}}</text>

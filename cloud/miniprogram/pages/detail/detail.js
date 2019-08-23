@@ -1,11 +1,17 @@
 // miniprogram/pages/home/home.js
+// 1. 获取数据库引用
+const db = wx.cloud.database();
+let app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    book: []
+    book: [],
+    book_id: '',
+    content: '',
+    commentsList:[]
   },
 
   /**
@@ -16,13 +22,26 @@ Page({
       title: 'loadding...',
     })
 
-    // 1. 获取数据库引用
-    const db = wx.cloud.database()
 
-    const books = db.collection('books')
+
+   
     const me = this;
-    books.where({
-      _id: options.book_id
+    me.setData({
+      book_id: options.book_id
+    })
+    
+//  获取书详情
+    this.bookDetail(options.book_id)
+    
+    // 获取评论列表
+    this.getCommentList()
+
+    this.addComment()
+  },
+  bookDetail(book_id){
+    let me =  this;
+    db.collection('books').where({
+      _id: book_id
     }).get({
       success: function (res) {
         me.setData({
@@ -35,7 +54,60 @@ Page({
         wx.hideLoading();
       }
     })
+  },
 
+  addComment() {
+    if (app.globalData.user_id) {
+      if (this.data.content) {
+        db.collection('comments').add({
+          data:{
+            book_id: this.data.book_id,
+            content: this.data.content,
+            likes_count: 0,
+            reply_count: 0,
+            time: new Date(),
+            top_comment: [],
+            user_id: app.globalData.user_id,
+            user_info: app.globalData.userInfo
+          },
+          success(data){
+            wx.showToast({
+              title: '评论成功！',
+            })
+          }
+        });
+      }
+
+    } else {
+      wx.navigateTo({
+        url: 'pages/login/login',
+      })
+    }
+  },
+  getCommentList() {
+    db.collection('comments').where({
+      book_id:this.data.book_id
+    }).limit(20)
+      .get()
+      
+      
+      .then(res=>{
+        console.log(res,33333)
+      })
+
+
+
+    // db.collection('comments').where({
+    //   book_id: this.data.book_id
+    // }).skip(0)       
+    //   .limit(10) 
+    //   .get()
+    //   .then(res => {
+    //     console.log(res.data,444)
+    //   })
+    //   .catch(err => {
+    //     console.error(err)
+    //   })
   },
 
   /**

@@ -22,6 +22,5 @@ view {
   right: 50rpx;
   background: #00adef;
   color:#fff;
-  width: 200rpx;
- 
+  width: 250rpx;
 }
